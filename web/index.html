@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Streamforge Control Console</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <p class="eyebrow">STREAMFORGE CDC</p>
+        <h1>Control console</h1>
+        <p class="lede">A small operational view for the replication service.</p>
+      </header>
+      <section class="status-panel" aria-live="polite">
+        <div>
+          <span class="label">Service status</span>
+          <strong id="status">Checking...</strong>
+        </div>
+        <button id="refresh" type="button">Refresh</button>
+      </section>
+      <section class="links">
+        <a href="/readyz">Readiness</a>
+        <a href="/metrics">Metrics</a>
+        <a href="/api/v1/events">Events</a>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
