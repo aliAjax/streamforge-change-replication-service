@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS cdc_sources (id text PRIMARY KEY, name text NOT NULL, kind text NOT NULL, endpoint text NOT NULL, database_name text NOT NULL, status text NOT NULL, credential_ref text NOT NULL, created_at timestamptz NOT NULL, updated_at timestamptz NOT NULL);
+CREATE TABLE IF NOT EXISTS cdc_pipelines (id text PRIMARY KEY, source_id text NOT NULL, name text NOT NULL, status text NOT NULL, strategy text NOT NULL, destination text NOT NULL, version bigint NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS cdc_checkpoints (source_id text PRIMARY KEY, read_lsn bigint NOT NULL DEFAULT 0, persisted_lsn bigint NOT NULL DEFAULT 0, confirmed_lsn bigint NOT NULL DEFAULT 0, version bigint NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS cdc_dead_letters (event_id text PRIMARY KEY, payload jsonb NOT NULL, attempts integer NOT NULL, reason text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
