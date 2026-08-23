@@ -1,0 +1,10 @@
+openapi: 3.0.3
+info:
+  title: Streamforge CDC API
+  version: 1.0.0
+paths:
+  /healthz: {get: {responses: {"200": {description: healthy}}}}
+  /readyz: {get: {responses: {"200": {description: ready}}}}
+  /api/v1/sources: {get: {responses: {"200": {description: list sources}}}, post: {responses: {"201": {description: created}}}}
+  /api/v1/pipelines: {get: {responses: {"200": {description: list pipelines}}}, post: {responses: {"201": {description: created}}}}
+  /api/v1/events: {get: {parameters: [{name: cursor, in: query, schema: {type: integer}}, {name: limit, in: query, schema: {type: integer}}], responses: {"200": {description: event page}}}}
