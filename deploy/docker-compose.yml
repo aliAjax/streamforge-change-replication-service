@@ -1,0 +1,8 @@
+services:
+  streamforge:
+    build: ..
+    ports:
+      - "8092:8092"
+    environment:
+      STREAMFORGE_API_KEY: dev-key
+      STREAMFORGE_HTTP_ADDR: :8092
