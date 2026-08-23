@@ -1,0 +1,5 @@
+http_addr: ":8092"
+metrics_addr: ":8093"
+buffer_bytes: 8388608
+shutdown_timeout: 10s
+api_key: "dev-key"
